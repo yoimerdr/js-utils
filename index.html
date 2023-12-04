@@ -3,19 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <title>Js Utils</title>
-  <link rel="stylesheet" href="src/styles/paginator.css" />
-  <script src="build/helpers/paginator.min.js"></script>
+  <link rel="stylesheet" href="./build/helpers/paginator.min.css" />
+  <script src="./build/helpers/paginator.min.js"></script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <div id="pagination"></div>
+  <h2>Sample Pagination (Don Reload Page)</h2>
 
+  <div id="pagination">
+  </div>
+
+  <h2>Sample Pagination (Reload Page)</h2>
+  <div id="page-pagination">
+  </div>
   <script>
-
-    PagePagination.paginate({
+    const dontReloadOptions = {
       total: 100,
       perPage: 10,
       containerId: "pagination",
-      showPages: -4,
+      showPages: 4,
       responsive: {
         600: {
           showPages: 1,
@@ -26,11 +40,19 @@
           showPages: 1,
           alwaysShow: 1
         }
-      },
-      onPageChange(page, type) {
-        console.log(page)
       }
-    });
+    };
+
+    PagePagination.paginate(dontReloadOptions);
+
+    const reloadOptions = {
+      containerId: "page-pagination",
+      pageParameterName: "pg",
+      reload: true
+    };
+
+    Object.assignIfNotPresent(reloadOptions, dontReloadOptions);
+    PagePagination.paginate(reloadOptions)
   </script>
 </body>
 </html>
