@@ -1,0 +1,66 @@
+#page-pagination-pages {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+#page-pagination-pages span {
+  font-size: 1rem;
+}
+  #page-pagination-pages span.page-pagination-action {
+    font-size: 1.1rem;
+  }
+
+  #page-pagination-pages span :where(a:hover, a),
+  .page-pagination-current {
+    border-radius: 0.3rem;
+  }
+
+  #page-pagination-pages span a:hover, .page-pagination-current {
+    background-color: #3f51b5;
+  }
+
+  #page-pagination-pages span a:hover {
+    transform: scale(1.1);
+  }
+
+
+#page-pagination-pages span.page-pagination-action {
+  font-weight: bold;
+}
+
+#page-pagination-pages span a {
+  text-decoration: none;
+  color: #333;
+  display: grid;
+  align-items: center;
+  width: fit-content;
+  min-width: 1rem;
+  height: 2rem;
+  text-align: center;
+  padding: 0.2rem 0.8rem;
+  transition: all 0.3s ease;
+}
+  #page-pagination-pages span a:not(:hover) {
+    box-shadow: 0.4rem 0.4rem 5px 0 rgba(172,181,237,0.75);
+    -webkit-box-shadow: 0.4rem 0.4rem 5px 0 rgba(172,181,237,0.75);
+    -moz-box-shadow: 0.4rem 0.4rem 5px 0 rgba(172,181,237,0.75);
+  }
+
+#page-pagination-pages span a:hover,
+#page-pagination-pages span.page-pagination-current a,
+#page-pagination-pages span:hover a {
+  color: #fff;
+}
+
+.page-pagination-disabled, .page-pagination-ellipsis {
+  background-color: #ccc;
+  border-radius: 0.3rem;
+  pointer-events: none;
+}
+
+:is(.page-pagination-disabled, .page-pagination-ellipsis) a {
+  color: #999;
+}

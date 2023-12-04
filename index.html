@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Js Utils</title>
+  <link rel="stylesheet" href="src/styles/paginator.css" />
+  <script src="build/helpers/paginator.min.js"></script>
+</head>
+<body>
+  <div id="pagination"></div>
+
+  <script>
+
+    PagePagination.paginate({
+      total: 100,
+      perPage: 10,
+      containerId: "pagination",
+      showPages: -4,
+      responsive: {
+        600: {
+          showPages: 1,
+          alwaysShow: 1,
+          showEllipsis: true
+        },
+        480: {
+          showPages: 1,
+          alwaysShow: 1
+        }
+      },
+      onPageChange(page, type) {
+        console.log(page)
+      }
+    });
+  </script>
+</body>
+</html>

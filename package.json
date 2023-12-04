@@ -1,0 +1,32 @@
+{
+  "name": "js-utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --build",
+    "bundle-js": "npm run build && npm run rollup",
+    "bund-blogger-css": "node lightningcss.blogger.mjs",
+    "bund-paginator-css": "node lightningcss.paginator.mjs",
+    "bund-blogger-js": "rollup -c rollup.blogger.mjs",
+    "bund-paginator-js": "rollup -c rollup.paginator.mjs",
+    "rollup": "npm run bund-blogger-js && npm run bund-paginator-js",
+    "min-blogger": "uglifyjs build/blogger/blogger.utils.js -o build/blogger/blogger.utils.min.js",
+    "min-paginator": "uglifyjs build/helpers/paginator.js -o build/helpers/paginator.min.js",
+    "min-js": "npm run min-blogger && npm run min-paginator",
+    "bundle-css": "npm run bund-blogger-css && npm run bund-paginator-css",
+    "dist": "npm run bundle-js && npm run min-js && npm run bundle-css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-multi-entry": "^6.0.1",
+    "css-minify": "^2.0.0",
+    "lightningcss": "^1.22.1",
+    "rollup": "^4.6.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2",
+    "uglify-js": "^3.17.4"
+  }
+}
